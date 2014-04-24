@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #define TAM 3
 
 void cargamat (float [][TAM]);
@@ -18,8 +17,9 @@ while(condseguir!=0)
     puts("\n\nIngrese 0(cero) para salir,1(uno) para continuar");
     do
         {scanf("%d",&condseguir);
-    }while(condseguir!=0&&condseguir!=1);
-}}
+        }while(condseguir!=0&&condseguir!=1);
+    }
+}
 
 void cargamat (float matriz[][TAM])
 {int i,j;
