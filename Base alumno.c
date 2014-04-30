@@ -16,7 +16,7 @@ typedef struct{
 
 void cargaalum(FILE*,t_alumno);
 void modifalum(FILE*,t_alumno);
-void leealum(FILE*,t_alumno);
+void muestraalum(FILE*,t_alumno);
 
 void main()
 {FILE*basealumno;
@@ -50,7 +50,7 @@ while(salida!=0)
             if(!basealumno)
                 exit(1);
                 else
-                    leealum(basealumno,varreg);
+                    muestraalum(basealumno,varreg);
         break ;
 
         default  :
@@ -117,15 +117,17 @@ void modifalum(FILE*basealumno,t_alumno varreg)
 }
 
 
-void leealum(FILE*basealumno,t_alumno varreg)
-    {   system("cls");
+void muestraalum(FILE*basealumno,t_alumno varreg)
+    {   int nreg=1;
+        system("cls");
         fread(&varreg,sizeof(t_alumno),1,basealumno);
         feof(basealumno);
-        printf("\nApellido: %s\nNombre: %s\nFecha Nac: %d/%d/%d\n1er parcial: %d\n2do parcial: %d\nProm.Final: %f\n\n",varreg.apellido,varreg.nombre,varreg.fnac.dd,varreg.fnac.mm,varreg.fnac.aa,varreg.p1,varreg.p2,varreg.prom);
+        printf("\nApellido: %s\nNombre: %s\nFecha Nac: %d/%d/%d\n1er parcial: %d\n2do parcial: %d\nProm.Final: %f\nNumero de registro: %d\n\n",varreg.apellido,varreg.nombre,varreg.fnac.dd,varreg.fnac.mm,varreg.fnac.aa,varreg.p1,varreg.p2,varreg.prom,nreg);
         fread(&varreg,sizeof(t_alumno),1,basealumno);
         while(!feof(basealumno))
-              {printf("\nApellido: %s\nNombre: %s\nFecha Nac: %d/%d/%d\n1er parcial: %d\n2do parcial: %d\nProm.Final: %f\n\n",varreg.apellido,varreg.nombre,varreg.fnac.dd,varreg.fnac.mm,varreg.fnac.aa,varreg.p1,varreg.p2,varreg.prom);
+              {printf("\nApellido: %s\nNombre: %s\nFecha Nac: %d/%d/%d\n1er parcial: %d\n2do parcial: %d\nProm.Final: %f\nNumero de registro: %d\n\n",varreg.apellido,varreg.nombre,varreg.fnac.dd,varreg.fnac.mm,varreg.fnac.aa,varreg.p1,varreg.p2,varreg.prom,nreg+1);
                fread(&varreg,sizeof(t_alumno),1,basealumno);
+               nreg++;
               }
     }
 
