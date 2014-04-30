@@ -16,7 +16,7 @@ typedef struct{
 
 void cargaalum(FILE*,t_alumno);
 void modifalum(FILE*,t_alumno);
-void leealumn(FILE*,t_alumno);
+void leealum(FILE*,t_alumno);
 
 void main()
 {FILE*basealumno;
@@ -24,7 +24,7 @@ t_alumno varreg;
 int opcion,salida=1;
 
 while(salida!=0)
-    {
+    {system("cls");
     printf("Ingrese:\n\t 1-Crear base de datos.\n\t 2-Modificar base de datos.\n\t 3-Ver Base de datos\n\nOPCION: ");
     scanf("%d",&opcion);
     switch (opcion)
@@ -58,9 +58,9 @@ while(salida!=0)
         break ;}
 
 fclose(basealumno);
-printf("Ingrese opcion:\n\t0-Salir\n\t1-Continuar\n\nOPCION: ");
+printf("\n\nIngrese opcion:\n\t0-Salir\n\t1-Continuar\n\nOPCION: ");
 scanf("%d",&salida);
-}
+    }
 }
 
 void cargaalum(FILE*basealumno,t_alumno varreg)
@@ -85,7 +85,7 @@ void cargaalum(FILE*basealumno,t_alumno varreg)
         scanf("%d",&varreg.p2);
         varreg.prom=(float)(varreg.p1 + varreg.p2)/2;
         fwrite(&varreg,sizeof(t_alumno),1,basealumno);
-        printf("Para seguir ingresando alumnos ingrese '1', para salir '0': ");
+        printf("\n\nPara seguir ingresando alumnos ingrese '1', para salir '0': ");
         scanf("%d",&salida);
         }
 }
